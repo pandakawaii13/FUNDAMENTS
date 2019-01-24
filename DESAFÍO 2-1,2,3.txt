@@ -1,0 +1,84 @@
+-DESAFÍO 1-
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+	          Console.WriteLine("Ingrese el cateto z, y ");
+		 double z = double.Parse(Console.ReadLine());
+		 double y = double.Parse(Console.ReadLine());
+		 
+	// HALLAR HIPOTENUSA
+		 double t = Math.Sqrt((z)*(z)+(y)*(y));	
+		
+	// HALLAR ÁNGULO a
+		 double a = (Math.Asin(y/t) * (180.0 / Math.PI));
+		
+	// HALLAR ÁNGULO c
+		 double c = 180-90-a;		 
+		
+	// SALIDA DEL RESULTADO	
+	          Console.WriteLine (t);
+	          Console.WriteLine (a);
+	          Console.WriteLine (c);		 
+		
+		
+	}
+}
+
+-DESAFÍO 2-
+
+ using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Ingrese el hipotenusa t, el ángulo a ");
+		  double t = double.Parse(Console.ReadLine());
+		  double aGrados = double.Parse(Console.ReadLine());
+		
+// CONVERSIÓN DE ÁNGULOS A RADIANES
+		double a = aGrados * (Math.PI / 180.0);
+	
+	// CALCULAR Y y Z
+		double y = Math.Sin(a) * t;
+		double z = Math.Sqrt((t)*(t)-(y)*(y));
+		double c = Math.Atan(z/y) * (180.0 / Math.PI);
+		
+	   Console.WriteLine (y);
+       Console.WriteLine (z);
+	   Console.WriteLine (c);
+		
+		
+	}
+}
+
+-DESAFÍO 3-
+  
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Ingrese el ángulo c, el cateto z ");
+		 double cGrados = double.Parse(Console.ReadLine());
+		 double z = double.Parse(Console.ReadLine());
+		
+	// CONVERSIÓN A RADIANES
+		 double c = cGrados * (Math.PI / 180.0);		
+	//CALCULAR T, Y, A
+		 double t = z / Math.Sin(c);
+		 double y = Math.Sqrt((t)*(t)-(z)*(z));
+	//CONVERSIÓN DE NUEVO A GRADOS
+		 double a = 180-90-c * (180.0 / Math.PI);	
+		 		 
+		Console.WriteLine(t);
+		Console.WriteLine(y);
+		Console.WriteLine(a);
+
+	}
+}
