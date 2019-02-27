@@ -1,0 +1,38 @@
+namespace ConsoleApp3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a = 0, b = 0, intentos = 0;
+            Random aleatorio = new Random();
+            a = aleatorio.Next(1, 11);
+            b = aleatorio.Next(1, 11);
+            int sumaCorrecta = a + b;
+            Console.WriteLine("La suma " + a + "+" + b);
+            Console.WriteLine("Respuesta");
+            int n = int.Parse(Console.ReadLine());
+
+            while (n != sumaCorrecta)
+            {
+                Console.WriteLine("Error. Ingrese de nuevo la respuesta : ");
+                a = aleatorio.Next(1, 11);
+                b = aleatorio.Next(1, 11);
+                sumaCorrecta = a + b;
+                Console.WriteLine("La suma " + a + "+" + b);
+                Console.WriteLine("Respuesta");
+                n = int.Parse(Console.ReadLine());
+
+                if (intentos == 1)
+                {
+                    Console.WriteLine("No eres humano");
+                    break;
+                }
+                intentos += 1;
+                
+            }
+            Console.WriteLine("GG");
+
+        }
+    }
+}
