@@ -1,0 +1,45 @@
+namespace GG
+{
+    class Program
+    {
+        static void Main()
+        {
+            double[] x = { 0, 2, 3, 7 };
+            double[] y = { 0, 1, 5, 6 };
+
+            double[] m = new double[x.Length - 1];  //Puede ser x o y
+            double[] b = new double[x.Length - 1];
+
+            for(int i= 0; i < m.Length; i++)
+            {
+                m[i] = (y[i + 1] - y[1]) / (x[i + 1] - x[1]); // para ahorrarse las otra líneas de codigo
+                b[i] = y[1] - m[1] * x[i];
+            }
+
+            /* m[0] = (y[1] - y[0]) / (x[1] - x[0]);
+             b[0] = y[0] - m[0] * x[0];
+
+             m[1] = (y[2] - y[1]) / (x[2] - x[1]);
+             b[1] = y[1] - m[1] * x[1];
+
+             m[0] = (y[3] - y[2]) / (x[3] - x[2]);
+             b[0] = y[2] - m[2] * x[2]; */
+
+            bool linea = true;
+            for ( int i = 0; i < m.Length-1; i++)
+            {
+                if (m[i] != m[i + 1]) linea = false;
+                if (b[i] != b[i + 1]) linea = false;
+            }
+
+            if (linea)
+            {
+                Console.WriteLine("Misma línea");
+            }
+            else
+            {
+                Console.WriteLine("Diferente línea");
+            }
+        }
+    }
+}
