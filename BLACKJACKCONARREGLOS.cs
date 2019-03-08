@@ -74,8 +74,9 @@ namespace BLACKJACKMODIFICADO
                 }
             }
             Console.WriteLine("Su total es " + total);
-            Console.WriteLine("Gracias por jugar");
-            Console.WriteLine("El ganador es " + jugador[indice] + " el número es  " + max);
+             if(indice == -1) Console.WriteLine("No hay ganador");
+            else Console.WriteLine("El ganador es " + jugador[indice] + " el número es  " + max);
+             Console.WriteLine("Gracias por jugar");
         }
     }
 }
