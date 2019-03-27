@@ -130,7 +130,30 @@ class Parcial {
         string[] salida = new string[0];
         //--------------------------------------------
         //- Abajo de esta línea va su código ---------
+        int contador = 0;
+        for (int i = 0; i < nombres.Length - 1; i++)
+        {
+            string palabra = nombres[i];
+            char A = 'A', E = 'E', I = 'I', O = 'O', U = 'U';
+            
+                if (palabra[0] == A || palabra[0] == E || palabra[0] == I|| palabra[0] == O|| palabra[0] == U)
+                {
+                    contador++;
+                }
+        }
+        int rellenar = 0;
+        salida = new string[contador];
+        for (int i = 0; i < nombres.Length - 1; i++)
+        {
+            string palabra = nombres[i];
+            char A = 'A', E = 'E', I = 'I', O = 'O', U = 'U';
 
+            if (palabra[0] == A || palabra[0] == E || palabra[0] == I || palabra[0] == O || palabra[0] == U)
+            {
+                salida[rellenar] = palabra;
+                rellenar++;
+            }
+        }
 
 
         //- Arriba de esta línea va su código --------
