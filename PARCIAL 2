@@ -1,0 +1,140 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+class Parcial {
+
+    string[] names;
+    double[] data;
+    public static int codigo = 1; // 0 Primer simulacro. 1 Segundo simulacro
+
+    public Parcial(string[] _names, double[] _data) {
+        data = new double[_data.Length];
+        _data.CopyTo(data, 0);
+        names = new string[_names.Length];
+        _names.CopyTo(names, 0);
+    }
+
+
+    public int PrimerPunto() {
+        string[] nombres = new string[names.Length]; names.CopyTo(nombres, 0);
+        double[] notas = new double[data.Length]; data.CopyTo(notas, 0);
+
+        int salida = 0 ;
+        //--------------------------------------------
+        //- Abajo de esta línea va su código ---------
+        double sumatoria = 0;
+        for (int i = 0; i < notas.Length; i++)
+        {
+            sumatoria += notas[i];
+        }
+        double promedio = sumatoria / notas.Length;
+        for (int i = 0; i < notas.Length; i++)
+        {
+            if (notas[i] <= promedio)
+            {
+                salida ++;
+            }
+        }
+
+
+        //- Arriba de esta línea va su código --------
+        return salida;
+    }
+
+    public string[] SegundoPunto() {
+        string[] nombres = new string[names.Length]; names.CopyTo(nombres, 0);
+        double[] notas = new double[data.Length]; data.CopyTo(notas, 0);
+
+        string[] salida = new string[5];
+        //--------------------------------------------
+        //- Abajo de esta línea va su código ---------
+        double sumatoria = 0;
+        for (int i = 0; i < notas.Length; i++)
+        {
+            sumatoria += notas[i];
+        }
+        double promedio = sumatoria / notas.Length;
+        double[] diferencia = new double[notas.Length];
+        for (int i = 0; i < diferencia.Length; i++)
+        {
+            diferencia[i] = Math.Abs(promedio - notas[i]);
+        }
+        for (int i = 0; i < notas.Length; i++)
+        {
+            for(int n = 0; n < notas.Length - 1; n++)
+            {
+                if (diferencia[n]>diferencia[n + 1])
+                {
+                    double transitoria = diferencia[n + 1];
+                    diferencia[n + 1] = diferencia[n];
+                    diferencia[n] = transitoria;
+
+                    string transitorianom = nombres[n + 1];
+                    nombres[n + 1] = nombres[n];
+                    nombres[n] = transitorianom;
+                }
+            }
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            salida[i] = nombres[i];
+        }
+
+        //- Arriba de esta línea va su código --------
+        return salida;
+    }
+
+    public string[] TercerPunto() {
+        string[] nombres = new string[names.Length]; names.CopyTo(nombres, 0);
+        double[] notas = new double[data.Length]; data.CopyTo(notas, 0);
+
+        string[] salida = new string[0];
+        //--------------------------------------------
+        //- Abajo de esta línea va su código ---------
+        double sumatoria = 0;
+        for (int i = 0; i < notas.Length; i++)
+        {
+            sumatoria += notas[i];
+        }
+        double promedio = sumatoria / notas.Length;
+        int contador = 0;
+        for (int i = 0; i < notas.Length; i++)
+        {
+            if (notas[i] >= promedio)
+            {
+                contador++;
+            }
+        }
+        salida = new string[contador];
+        int mayores = 0;
+        for (int i = 0; i < notas.Length; i++)
+        {
+            if (notas[i] >= promedio)
+            {
+                salida[mayores] = nombres[i];
+                mayores++;
+            }
+        }
+
+
+        //- Arriba de esta línea va su código --------
+        return salida;
+    }
+
+    public string[] CuartoPunto() {
+        string[] nombres = new string[names.Length]; names.CopyTo(nombres, 0);
+        double[] notas = new double[data.Length]; data.CopyTo(notas, 0);
+
+        string[] salida = new string[0];
+        //--------------------------------------------
+        //- Abajo de esta línea va su código ---------
+
+
+
+        //- Arriba de esta línea va su código --------
+        return salida;
+    }
+}
+
